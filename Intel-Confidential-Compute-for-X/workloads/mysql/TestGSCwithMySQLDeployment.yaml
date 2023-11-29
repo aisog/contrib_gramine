@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: test-mysql
-        image: aks01containerregistry.azurecr.io/gsc-mysql:test
+        image: aks01containerregistry.azurecr.io/gsc-mysql:latest
         ports:
         - containerPort: 3306
         resources:
