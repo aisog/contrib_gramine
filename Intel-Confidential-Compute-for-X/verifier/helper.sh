@@ -30,7 +30,7 @@ else
     openssl genrsa -out ssl_common/ca.key 2048
     openssl req -x509 -new -nodes -key ssl_common/ca.key -sha256 -days 1024 -out ssl_common/ca.crt -config ca_config.conf
     openssl genrsa -out ssl_common/server.key 2048
-    openssl req -new -key ssl_common/server.key -out ssl_common/server.csr -config ca_config.conf
+    openssl req -new -key ssl_common/server.key -out ssl_common/server.csr -config server_config.conf
     openssl x509 -req -days 360 -in ssl_common/server.csr -CA ssl_common/ca.crt -CAkey ssl_common/ca.key -CAcreateserial -out ssl_common/server.crt
 fi
 
