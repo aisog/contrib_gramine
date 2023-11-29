@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt-get update \
     && env DEBIAN_FRONTEND=noninteractive apt-get install -y wget \
@@ -8,7 +8,7 @@ RUN apt-get update \
     python3
 
 # Installing DCAP libraries
-RUN echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' \
+RUN echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu jammy main' \
     > /etc/apt/sources.list.d/intel-sgx.list \
     && wget https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key \
     && apt-key add intel-sgx-deb.key

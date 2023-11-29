@@ -4,14 +4,15 @@ RUN apt-get update \
     && env DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl \
     gnupg2 \
+    az-dcap-client \
     wget
 
 # Installing Azure DCAP Quote Provider Library (az-dcap-client).
 # Here, the version of az-dcap-client should be in sync with the az-dcap-client
 # version used for quote generation. User can replace the below package with the
 # latest package.
-RUN wget https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11_amd64.deb \
- && dpkg -i az-dcap-client_1.11_amd64.deb
+#RUN wget https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11_amd64.deb \
+# && dpkg -i az-dcap-client_1.11_amd64.deb
 
 WORKDIR /ra-tls-secret-prov
 
@@ -20,7 +21,7 @@ COPY gramine/CI-Examples/ra-tls-secret-prov/helper-files ./files
 
 COPY gramine/CI-Examples/ra-tls-secret-prov/secret_prov /usr/local/bin
 
-RUN echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' \
+RUN echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu jammy main' \
     > /etc/apt/sources.list.d/intel-sgx.list \
     && wget https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key \
     && apt-key add intel-sgx-deb.key

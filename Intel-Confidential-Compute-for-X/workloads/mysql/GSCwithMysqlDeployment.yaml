@@ -29,7 +29,7 @@ spec:
           mountPath: /var/run/test_db_encrypted    
         env:
         - name:  SECRET_PROVISION_SERVERS
-          value:  "verifierbymr.eastus2.cloudapp.azure.com:4433" #DNS of verifier with port
+          value:  "verifierbymr2.eastus2.cloudapp.azure.com:4433" #DNS of verifier with port
       volumes:
       - name: var-run-aesmd
         hostPath:
