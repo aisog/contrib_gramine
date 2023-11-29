@@ -24,7 +24,7 @@ Perform the following steps on your system:
    this step. Note that the following steps assume a new database and you need to adjust the
    commands when an exiting database is used.
    ```sh
-   mkdir workloads/mysql/test_db
+   mkdir workloads/test_dbmysql/
    docker run --rm --net=host --name init_test_db --user $(id -u):$(id -g) \
        -v $PWD/workloads/mysql/test_db:/test_db \
        -e MYSQL_ALLOW_EMPTY_PASSWORD=true -e MYSQL_DATABASE=test_db mysql:8.0.34-debian \
